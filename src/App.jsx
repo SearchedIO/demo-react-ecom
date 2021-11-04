@@ -1,5 +1,26 @@
 import React from "react";
+import { useEffect, useState } from "react";
+import { useMetamask }         from "use-metamask";
+// you can use any web3 interface
+import { ethers }           from "ethers";
+// import Web3                 from "web3";
 
+function App() {
+  const { connect, metaState } = useMetamask();
+
+  // instead of calling it from useEffect, you can also call connect method from button click handler
+  useEffect(() => {
+    if (!metaState.isConnected) {
+      (async () => {
+        try {
+          await connect(ethers);
+        } catch (error) {
+          console.log(error);
+        }
+      })();
+    }
+  }, []);
+}
 
 function PlasmicLogo() {
   return (
