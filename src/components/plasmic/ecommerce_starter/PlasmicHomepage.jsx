@@ -115,7 +115,7 @@ function PlasmicHomepage__RenderFunc(props) {
                       sty.h1
                     )}
                   >
-                    {"New collection!"}
+                    {"unlimitid"}
                   </h1>
 
                   <div
